@@ -183,4 +183,4 @@ def get_job_keywords(df):
     skills_summary = collections.Counter(skills_count)
     python_summary = collections.Counter(python_count)
     
-    return programming_summary, skills_summary, python_summary, {"errors" : errors}
+    return {"programming_summary" : programming_summary, "skills_summary" : python_summary, "skills_summary" : python_summary, "errors" : errors}
