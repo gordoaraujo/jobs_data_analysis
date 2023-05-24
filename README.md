@@ -60,3 +60,6 @@ create another "setup.md" file and link to it here*
 * [Jose Araujo](https://github.com/gordoaraujo)
 * [Claudio Benzoni](https://github.com/benzo-benzo)
 * [Vincent Zitzewitz](https://github.com/[github handle])
+
+First commit Claudio
+
