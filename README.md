@@ -18,7 +18,7 @@ The purpose of this project is to find Data Science (and field related) jobs usi
     - Education required
 * Geographical information
     - Which are the best cities (by number of jobs)
-*Company information
+* Company information
     - Best rated companies
     - Company size
 
@@ -54,9 +54,9 @@ create another "setup.md" file and link to it here*
 * [Notebook/Markdown/Slide DeckTitle](link)
 * [Blog Post](link) -->
 
-## -- Project Status: Active
+## Project Status: Active
 
 ## Contributing Members
 * [Jose Araujo](https://github.com/gordoaraujo)
-* [Claudio Benzoni](https://github.com/[github handle])
+* [Claudio Benzoni](https://github.com/benzo-benzo)
 * [Vincent Zitzewitz](https://github.com/[github handle])
