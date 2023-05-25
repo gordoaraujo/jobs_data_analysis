@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import string
 import collections
+import time
 
 # Adapted from https://github.com/lukebarousse/Data_Analyst_Streamlit_App_V1/blob/main/01_%F0%9F%9B%A0%EF%B8%8F_Skills.py
 keywords_skills = {
@@ -143,6 +144,10 @@ def get_job_keywords(df):
     job_urls = df["job_link"].values
 
     for i, ju in enumerate(job_urls):
+
+        if i % 5 == 0:
+            time.sleep(0.5)
+
         flag_1 = False
         flag_2 = False
         
@@ -152,6 +157,7 @@ def get_job_keywords(df):
         try:
             job_desc = sec_soup.find("div", {"data-cy" : "vacancy-description"})
             job_desc_text = job_desc.text
+            # print(job_desc)
         except AttributeError:
             job_desc_text = ""
             flag_1 = True
@@ -160,6 +166,7 @@ def get_job_keywords(df):
             try:
                 job_desc = sec_soup.find("iframe", {"data-cy" : "detail-vacancy-iframe-content"}).find_next()
                 job_desc_text = job_desc.text
+                # print(job_desc)
             except AttributeError:
                 job_desc_text = ""
                 flag_2 = True
@@ -170,7 +177,8 @@ def get_job_keywords(df):
         job_desc_text = job_desc_text.translate(job_desc_text.maketrans("", "", '!"$%&\'()*,-./:;<=>?@[\\]^_`{|}~'))
         job_desc_text = job_desc_text.lower()
         job_desc_words = job_desc_text.split()
-        
+        # job_desc_words = set(job_desc_text)
+
         for word in job_desc_words:
             if word in keywords_programming.keys():
                 programming_count.append(word)
@@ -183,4 +191,4 @@ def get_job_keywords(df):
     skills_summary = collections.Counter(skills_count)
     python_summary = collections.Counter(python_count)
     
-    return {"programming_summary" : programming_summary, "skills_summary" : python_summary, "skills_summary" : python_summary, "errors" : errors}
+    return {"programming_summary" : programming_summary, "skills_summary" : skills_summary, "python_summary" : python_summary, "errors" : errors}
